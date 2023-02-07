@@ -7,45 +7,20 @@ class Main {
         double valor = 50;
         double ValorParaDepositar = valor;
         double ValorParaSacar = valor;
+        Conta_corrente Usuario = new Conta_corrente();
         for (int i = 0; i <= vezes; i++) {
-          obiterSaldo(saldo);
-          saldo = depositar(ValorParaDepositar, saldo);
-          obiterSaldo(saldo);
+          Usuario.obiterSaldo(saldo);
+          saldo = Usuario.depositar(ValorParaDepositar, saldo);
+          Usuario.obiterSaldo(saldo);
         }
         System.out.println("Sacando ...");
         for (int i = 0; i <= vezes; i++) {
           double total , saldoTotal;
-          obiterSaldo(saldo);
-          total = sacar(ValorParaSacar, saldo, T);
-          obiterSaldo(total);
+          Usuario.obiterSaldo(saldo);
+          total = Usuario.sacar(ValorParaSacar, saldo, T);
+          Usuario.obiterSaldo(total);
           saldo = total;
        }
-  }
-  // Conta_corrente
-  public static double depositar(double valor, double saldo) {
-    double total = 0;
-    total = valor + saldo;
-    return total;
-  }
-
-  public static double sacar(double valor, double saldo, double T) {
-    double ValorParaSacar = taxaParaSacar(T, valor);
-    double total = saldo - ValorParaSacar;
-    return total;
-  }
-
-  public static void obiterSaldo(double saldo) {
-    System.out.println("Seu saldo : " + saldo);
-  }
-  // Matematica
-  public static void minhaIdade(int anoNaci , int anoAtual){
-    int total ;
-    total = anoAtual - anoNaci;
-    System.out.println("Sua idade : " + total);
-  }
-  public static double taxaParaSacar(double T , double valor){
-    double total =  valor -  T;// T/100
-    return total;
   }
 }
 
